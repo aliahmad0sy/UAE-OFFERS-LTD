@@ -1,4 +1,4 @@
-export const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+966500000000";
+export const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+966507427711";
 
 export const SERVICES = [
   { id: "maids", nameAr: "استقدام خادمات", nameEn: "Maid Recruitment", slug: "maids", icon: "🏠" },
