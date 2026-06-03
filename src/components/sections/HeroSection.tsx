@@ -2,119 +2,119 @@
 
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import { MessageCircle, ArrowLeft, ArrowRight, Star, Users, Award, CheckCircle, Phone } from "lucide-react";
+import { MessageCircle, Phone, CheckCircle } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/utils";
 import { WHATSAPP_NUMBER } from "@/data/constants";
 
 export default function HeroSection() {
   const t = useTranslations("hero");
   const locale = useLocale();
-  const isRTL = locale === "ar";
 
   const message =
     locale === "ar"
       ? "مرحباً، أريد الاستفسار عن خدمات استقدام العمالة المنزلية"
       : "Hello, I want to inquire about domestic labor recruitment services";
 
+  const badges = locale === "ar"
+    ? ["مرخصون رسمياً", "ضمان 3 أشهر", "متابعة مستمرة", "أسعار شفافة"]
+    : ["Officially Licensed", "3-Month Guarantee", "Continuous Follow-up", "Transparent Pricing"];
+
   const stats = [
-    { value: "+5000", label: t("stat1"), icon: <Users className="w-6 h-6" /> },
-    { value: "+15", label: t("stat2"), icon: <Award className="w-6 h-6" /> },
-    { value: "5", label: t("stat3"), icon: <Star className="w-6 h-6" /> },
-    { value: "98%", label: t("stat4"), icon: <CheckCircle className="w-6 h-6" /> },
+    { value: "+5,000", label: locale === "ar" ? "عميل راضٍ" : "Happy Clients" },
+    { value: "+15", label: locale === "ar" ? "سنة خبرة" : "Years Experience" },
+    { value: "5", label: locale === "ar" ? "جنسيات متاحة" : "Nationalities" },
+    { value: "98%", label: locale === "ar" ? "نسبة نجاح" : "Success Rate" },
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#004d49] via-[#006C67] to-[#009688]" />
-      <div className="absolute inset-0 -z-10 opacity-10"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
-      />
-      {/* Decorative circles */}
-      <div className="absolute top-0 end-0 w-[500px] h-[500px] bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 start-0 w-[300px] h-[300px] bg-[#D4AF37]/10 rounded-full translate-y-1/2 -translate-x-1/2" />
+    <section className="relative overflow-hidden">
+      {/* Dark hero area */}
+      <div className="relative bg-[#003d39] pt-24 pb-0">
+        {/* Subtle grid pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='none'/%3E%3Cpath d='M0 0h80M0 80h80M0 0v80M80 0v80' stroke='%23fff' stroke-width='0.5'/%3E%3C/svg%3E")`,
+            backgroundSize: "80px 80px",
+          }}
+        />
 
-      <div className="container mx-auto px-4 py-24 lg:py-32 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="text-center lg:text-start">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/15 text-white px-4 py-2 rounded-full text-sm font-medium mb-6 backdrop-blur-sm border border-white/20">
-              <Star className="w-4 h-4 fill-[#D4AF37] text-[#D4AF37]" />
-              {locale === "ar" ? "الشركة الأولى في استقدام العمالة المنزلية" : "#1 Domestic Labor Recruitment Company"}
-            </div>
+        {/* Gold accent top line */}
+        <div className="absolute top-0 inset-x-0 h-1 bg-[#D4AF37]" />
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5">
-              {t("title")}
-            </h1>
-
-            <p className="text-lg text-white/80 mb-8 leading-relaxed">
-              {t("subtitle")}
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8">
-              <Link
-                href={`/${locale}/contact#request`}
-                className="flex items-center justify-center gap-2 bg-[#D4AF37] text-gray-900 font-bold px-8 py-4 rounded-xl text-base hover:bg-[#c49d2a] transition-all duration-300 hover:shadow-lg hover:shadow-[#D4AF37]/30 hover:-translate-y-0.5"
-              >
-                <Phone className="w-5 h-5" />
-                {t("requestBtn")}
-              </Link>
-              <a
-                href={getWhatsAppUrl(WHATSAPP_NUMBER, message)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold px-8 py-4 rounded-xl text-base hover:bg-[#1fb854] transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30 hover:-translate-y-0.5"
-              >
-                <MessageCircle className="w-5 h-5" />
-                {t("whatsappBtn")}
-              </a>
-            </div>
-
-            {/* Trust badges */}
-            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-              {[
-                locale === "ar" ? "مرخصون رسمياً" : "Officially Licensed",
-                locale === "ar" ? "ضمان 3 أشهر" : "3-Month Guarantee",
-                locale === "ar" ? "متابعة كاملة" : "Full Follow-up",
-                locale === "ar" ? "أسعار مضمونة" : "Guaranteed Prices",
-              ].map((badge) => (
-                <div key={badge} className="flex items-center gap-1.5 text-white/90 text-sm bg-white/10 px-3 py-1.5 rounded-full backdrop-blur-sm">
-                  <CheckCircle className="w-3.5 h-3.5 text-[#D4AF37]" />
-                  {badge}
-                </div>
-              ))}
-            </div>
+        <div className="relative container mx-auto px-4 py-16 md:py-24 text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 border border-[#D4AF37]/50 text-[#D4AF37] px-5 py-2 rounded-full text-sm font-semibold mb-8">
+            <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse" />
+            {locale === "ar"
+              ? "وكالة استقدام معتمدة ومرخصة رسمياً"
+              : "Officially Licensed Recruitment Agency"}
           </div>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 gap-4">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="flex justify-center mb-3">
-                  <div className="w-12 h-12 bg-[#D4AF37]/20 text-[#D4AF37] rounded-xl flex items-center justify-center">
-                    {stat.icon}
-                  </div>
-                </div>
-                <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
-                <div className="text-sm text-white/70">{stat.label}</div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 max-w-4xl mx-auto">
+            {t("title")}
+          </h1>
+
+          <p className="text-lg md:text-xl text-white/65 leading-relaxed mb-10 max-w-2xl mx-auto">
+            {t("subtitle")}
+          </p>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+            <Link
+              href={`/${locale}/contact#request`}
+              className="inline-flex items-center justify-center gap-2.5 bg-[#D4AF37] text-[#003d39] font-black px-10 py-4 rounded-xl text-base hover:bg-[#c9a430] transition-all duration-200 shadow-xl shadow-[#D4AF37]/20"
+            >
+              <Phone className="w-5 h-5" />
+              {t("requestBtn")}
+            </Link>
+            <a
+              href={getWhatsAppUrl(WHATSAPP_NUMBER, message)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2.5 bg-[#25D366] text-white font-bold px-10 py-4 rounded-xl text-base hover:bg-[#1fbc58] transition-all duration-200 shadow-xl shadow-[#25D366]/20"
+            >
+              <MessageCircle className="w-5 h-5" />
+              {t("whatsappBtn")}
+            </a>
+          </div>
+
+          {/* Trust badges */}
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            {badges.map((b) => (
+              <span key={b} className="flex items-center gap-1.5 text-white/55 text-sm">
+                <CheckCircle className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
+                {b}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Wave into stats */}
+        <svg
+          viewBox="0 0 1440 60"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full block"
+          preserveAspectRatio="none"
+          style={{ height: 60 }}
+        >
+          <path d="M0 60 L0 30 Q360 0 720 30 Q1080 60 1440 30 L1440 60 Z" fill="white" />
+        </svg>
+      </div>
+
+      {/* Stats strip */}
+      <div className="bg-white border-b border-gray-100 shadow-sm">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100 rtl:divide-x-reverse">
+            {stats.map((s, i) => (
+              <div key={i} className="py-6 px-6 text-center">
+                <div className="text-3xl md:text-4xl font-black text-primary mb-1">{s.value}</div>
+                <div className="text-sm text-gray-500">{s.label}</div>
               </div>
             ))}
           </div>
         </div>
-      </div>
-
-      {/* Wave divider */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 80L1440 80L1440 40C1200 80 960 0 720 40C480 80 240 0 0 40L0 80Z" fill="white" />
-        </svg>
       </div>
     </section>
   );
