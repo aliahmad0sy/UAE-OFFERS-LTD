@@ -1,0 +1,155 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "nationalities": "Nationalities",
+    "cities": "Cities",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "requestNow": "Request Now"
+  },
+  "hero": {
+    "title": "Best Domestic Labor Recruitment Services in Saudi Arabia",
+    "subtitle": "We provide the best trained and reliable domestic workers from more than 5 countries with over 15 years of experience",
+    "requestBtn": "Request Now",
+    "whatsappBtn": "Contact via WhatsApp",
+    "stat1": "Satisfied Clients",
+    "stat2": "Years Experience",
+    "stat3": "Nationalities",
+    "stat4": "Success Rate"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "We offer a comprehensive range of domestic labor recruitment services",
+    "maids": "Maid Recruitment",
+    "maidsDesc": "We provide trained maids from the best nationalities for your home",
+    "nannies": "Nanny Recruitment",
+    "nanniesDesc": "Specialized and qualified nannies to care for your children",
+    "drivers": "Driver Recruitment",
+    "driversDesc": "Experienced and trustworthy drivers to serve your family",
+    "cooks": "Cook Recruitment",
+    "cooksDesc": "Skilled cooks in Arabic and international cuisine",
+    "workers": "Home Worker Recruitment",
+    "workersDesc": "Home workers for various tasks inside the home",
+    "learnMore": "Learn More"
+  },
+  "whyUs": {
+    "title": "Why Choose Us?",
+    "subtitle": "We stand out with quality, professionalism and excellent service",
+    "speed": "Fast Delivery",
+    "speedDesc": "We guarantee the worker arrives in the shortest possible time",
+    "followUp": "Continuous Follow-up",
+    "followUpDesc": "We follow up with you throughout the recruitment journey until arrival",
+    "price": "Competitive Prices",
+    "priceDesc": "Suitable prices with the highest quality of service",
+    "support": "Excellent Customer Service",
+    "supportDesc": "A specialized team available 24/7 to serve you"
+  },
+  "steps": {
+    "title": "Recruitment Steps",
+    "subtitle": "Easy and simple process in 4 steps",
+    "step1Title": "Submit Request",
+    "step1Desc": "Contact us and specify your needs",
+    "step2Title": "Select Worker",
+    "step2Desc": "We present you with the best candidates",
+    "step3Title": "Complete Procedures",
+    "step3Desc": "We handle all visa and contract procedures",
+    "step4Title": "Reception",
+    "step4Desc": "We receive the worker and she begins her duties"
+  },
+  "nationalities": {
+    "title": "Available Nationalities",
+    "subtitle": "We provide domestic workers from the best countries",
+    "philippines": "Philippines",
+    "kenya": "Kenya",
+    "uganda": "Uganda",
+    "ethiopia": "Ethiopia",
+    "bangladesh": "Bangladesh",
+    "learnMore": "Learn More"
+  },
+  "testimonials": {
+    "title": "Client Reviews",
+    "subtitle": "What our valued clients say about their experience with us"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Answers to the most common questions"
+  },
+  "requestForm": {
+    "title": "Request Recruitment Now",
+    "subtitle": "Send your request and we will contact you within 24 hours",
+    "name": "Full Name",
+    "phone": "Phone Number",
+    "city": "City",
+    "serviceType": "Service Type",
+    "nationality": "Required Nationality",
+    "notes": "Additional Notes",
+    "submit": "Submit Request",
+    "success": "Your request has been submitted successfully! We will contact you soon.",
+    "selectCity": "Select City",
+    "selectService": "Select Service",
+    "selectNationality": "Select Nationality",
+    "any": "Any Nationality"
+  },
+  "whatsapp": {
+    "text": "Contact via WhatsApp"
+  },
+  "footer": {
+    "description": "A leading company in domestic labor recruitment in Saudi Arabia",
+    "quickLinks": "Quick Links",
+    "services": "Our Services",
+    "contact": "Contact Us",
+    "rights": "All Rights Reserved",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "addressValue": "Riyadh, Saudi Arabia"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "A leading company in domestic labor recruitment",
+    "description": "We are a specialized company in domestic labor recruitment in Saudi Arabia, with over 15 years of experience in this field. We always strive to provide the best services to our valued clients with the highest standards of quality and professionalism.",
+    "mission": "Our Mission",
+    "missionDesc": "Providing the best reliable and trained domestic workers to serve Saudi families",
+    "vision": "Our Vision",
+    "visionDesc": "To be the leading company in domestic labor recruitment in the Gulf region"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We are here to help you at any time",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "whatsapp": "WhatsApp",
+    "sendMessage": "Send Message"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Latest articles and news in domestic labor recruitment",
+    "readMore": "Read More",
+    "allPosts": "All Posts",
+    "categories": "Categories",
+    "recentPosts": "Recent Posts",
+    "searchPlaceholder": "Search articles..."
+  },
+  "cities": {
+    "title": "Saudi Cities",
+    "subtitle": "We serve you in all cities of Saudi Arabia"
+  },
+  "admin": {
+    "dashboard": "Dashboard",
+    "requests": "Requests",
+    "posts": "Posts",
+    "faqs": "FAQs",
+    "testimonials": "Testimonials",
+    "settings": "Settings",
+    "logout": "Logout",
+    "total": "Total",
+    "pending": "Pending",
+    "completed": "Completed",
+    "newRequest": "New Request",
+    "newPost": "New Post"
+  }
+}

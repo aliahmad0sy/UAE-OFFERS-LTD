@@ -1,0 +1,194 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      Role     @default(ADMIN)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Request {
+  id          String        @id @default(cuid())
+  name        String
+  phone       String
+  city        String
+  serviceType String
+  nationality String?
+  notes       String?
+  status      RequestStatus @default(PENDING)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@map("requests")
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  nameAr      String
+  nameEn      String
+  slug        String    @unique
+  description String?
+  posts       Post[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("categories")
+}
+
+model Tag {
+  id        String   @id @default(cuid())
+  nameAr    String
+  nameEn    String
+  slug      String   @unique
+  posts     Post[]   @relation("PostTags")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("tags")
+}
+
+model Post {
+  id            String     @id @default(cuid())
+  titleAr       String
+  titleEn       String?
+  slug          String     @unique
+  excerptAr     String?
+  excerptEn     String?
+  contentAr     String     @db.Text
+  contentEn     String?    @db.Text
+  coverImage    String?
+  metaTitleAr   String?
+  metaTitleEn   String?
+  metaDescAr    String?
+  metaDescEn    String?
+  published     Boolean    @default(false)
+  featured      Boolean    @default(false)
+  views         Int        @default(0)
+  readTime      Int        @default(5)
+  category      Category?  @relation(fields: [categoryId], references: [id])
+  categoryId    String?
+  tags          Tag[]      @relation("PostTags")
+  publishedAt   DateTime?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  @@map("posts")
+}
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  nameAr    String
+  nameEn    String?
+  city      String
+  rating    Int      @default(5)
+  textAr    String
+  textEn    String?
+  avatar    String?
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("testimonials")
+}
+
+model FAQ {
+  id          String   @id @default(cuid())
+  questionAr  String
+  questionEn  String?
+  answerAr    String   @db.Text
+  answerEn    String?  @db.Text
+  category    String   @default("general")
+  order       Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("faqs")
+}
+
+model Service {
+  id            String   @id @default(cuid())
+  nameAr        String
+  nameEn        String
+  slug          String   @unique
+  descriptionAr String   @db.Text
+  descriptionEn String?  @db.Text
+  icon          String?
+  image         String?
+  published     Boolean  @default(true)
+  order         Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("services")
+}
+
+model Nationality {
+  id            String   @id @default(cuid())
+  nameAr        String
+  nameEn        String
+  slug          String   @unique
+  country       String
+  flag          String?
+  descriptionAr String   @db.Text
+  descriptionEn String?  @db.Text
+  salaryMin     Int      @default(0)
+  salaryMax     Int      @default(0)
+  duration      String?
+  published     Boolean  @default(true)
+  order         Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("nationalities")
+}
+
+model City {
+  id            String   @id @default(cuid())
+  nameAr        String
+  nameEn        String
+  slug          String   @unique
+  region        String?
+  descriptionAr String   @db.Text
+  descriptionEn String?  @db.Text
+  published     Boolean  @default(true)
+  order         Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("cities")
+}
+
+model Setting {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("settings")
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+enum RequestStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
